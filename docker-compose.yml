@@ -1,0 +1,14 @@
+version: '3'
+services:
+
+  # Angular frontend
+  frontend:
+    image: am-tweets
+    container_name: am-tweets
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - "80:3000"
+    logging:
+      driver: json-file
