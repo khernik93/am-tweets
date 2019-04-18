@@ -1,0 +1,20 @@
+<div class="search">
+  <div class="search--label">
+    <h3>{{ searchType$ | async | titlecase }} search</h3>
+  </div>
+  <div class="search--input col-md-3">
+    <form class="form-inline md-form form-sm active-purple-2" 
+          (submit)="search()" 
+          [formGroup]="searchForm"
+    >
+      <input class="form-control form-control-sm mr-3 w-75" 
+             type="text" 
+             placeholder="Search" 
+             aria-label="Search"
+             formControlName="input"
+      >
+      <i class="fas fa-search active" aria-hidden="true"></i>
+      <span class="validation-input-error" *ngIf="isInvalid('input')"><h4>This field cannot be empty!</h4></span>
+    </form>
+  </div>
+</div>

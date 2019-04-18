@@ -1,6 +1,6 @@
 import { Component, ViewChild, ElementRef, Input, OnInit, OnDestroy } from '@angular/core';
 import { Observable, Subject } from 'rxjs';
-import { Notification } from '../../containers/notification/notification.model';
+import { Notification } from '../../containers/notification/model/notification.model';
 import { takeUntil, filter } from 'rxjs/operators';
 
 @Component({

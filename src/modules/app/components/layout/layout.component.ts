@@ -2,8 +2,6 @@ import { Component } from '@angular/core';
 
 @Component({
   selector: 'layout-component',
-  template: `
-    fdfgfsdfds
-  `
+  templateUrl: './layout.component.html'
 })
 export class LayoutComponent { }

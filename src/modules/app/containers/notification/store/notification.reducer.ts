@@ -1,5 +1,5 @@
 import { NotificationActions, NotificationActionTypes } from './notification.actions';
-import { Notification, NotificationType } from '../notification.model';
+import { Notification, NotificationType } from '../model/notification.model';
 
 export interface NotificationState {
   notification: Notification

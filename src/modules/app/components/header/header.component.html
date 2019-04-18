@@ -1,0 +1,11 @@
+<div class="row header">
+  <div class="col-md-1"></div>
+  <div [class]="'col-md-2 header--tab' + ((searchType$ | async) === 'hashtags' ? ' header--tab--selected' : '')"
+       routerLink="/tweets/hashtags">
+    Hashtag search
+  </div>
+  <div [class]="'col-md-2 header--tab' + ((searchType$ | async) === 'users' ? ' header--tab--selected' : '')"
+       routerLink="/tweets/users">
+    User search
+  </div>
+</div>
