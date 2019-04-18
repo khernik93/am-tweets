@@ -6,6 +6,7 @@ import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { StoreModule } from '@ngrx/store';
 import { EffectsModule } from '@ngrx/effects';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
+import { ReactiveFormsModule } from '@angular/forms';
 
 // Store
 import { syncReducers } from './store/app.reducers';
@@ -24,27 +25,35 @@ import { TransferHttpService } from '../../shared/services/transferHttp.service'
 import { BackendClient } from '../../shared/clients/backend/backend.client';
 import { ErrorInterceptor } from './interceptors/error.interceptor';
 import { NotificationContainer } from './containers/notification/notification.container';
-import { LayoutContainer } from './containers/layout/layout.container';
 import { BackendService } from '../../shared/clients/backend/backend.service';
+import { TweetsModule } from '../tweets/tweets.module';
+import { HeaderComponent } from './components/header/header.component';
+import { SearchContainer } from './containers/search/search.container';
+import { SearchComponent } from './components/search/search.component';
 
 export const MODULE_DECLARATIONS = [
   NotFoundComponent,
   NotificationContainer,
-  NotificationComponent
+  NotificationComponent,
+  HeaderComponent,
+  SearchContainer,
+  SearchComponent
 ];
 
 const LAYOUT_MODULE_DECLARATIONS = [
   AppComponent,
-  LayoutContainer,
   LayoutComponent
 ];
 
 export const MODULE_IMPORTS = [
   BrowserModule,
-  HttpClientModule
+  HttpClientModule,
+  ReactiveFormsModule
 ];
 
-const ROOT_MODULE_IMPORTS = [];
+const ROOT_MODULE_IMPORTS = [
+  TweetsModule
+];
 
 const ROUTING_MODULE_IMPORTS = [
   AppRoutingModule

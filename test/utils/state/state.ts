@@ -1,18 +1,11 @@
-import { TabsResponse } from '../responses/tabs.response';
-import { HeaderState } from '../../../src/modules/header/store/header.reducers';
-import { PhotosResponse } from '../responses/photos.response';
-import { ContentState } from '../../../src/modules/content/store/content.reducers';
-import { PostsListResponse } from '../responses/postsList.response';
-import { CommentsResponse } from '../responses/comments.response';
-import { SinglePostResponse } from '../responses/singlePost.response';
-import { RecentPostsResponse } from '../responses/recentPosts.response';
 import { AppState } from '../../../src/modules/app/store/app.reducers';
-import { NotificationType } from '../../../src/modules/app/containers/notification/notification.model';
+import { NotificationType } from '../../../src/modules/app/containers/notification/model/notification.model';
+import { TweetsState } from '../../../src/modules/tweets/store/tweets.reducer';
+import { TweetsResponse } from '../responses/tweets.response';
 
 export const State: {
-  header: HeaderState,
-  content: ContentState,
-  app: AppState
+  app: AppState,
+  tweets: TweetsState
 } = {
   app: {
     router: null,
@@ -21,32 +14,14 @@ export const State: {
         message: 'first notification',
         type: NotificationType.error
       }
+    },
+    search: {
+      input: 'Python',
+      searchType: 'hashtags'
     }
   },
-  header: {
-    menu: {
-      tabs: TabsResponse,
-      selectedTab: TabsResponse[0]
-    },
-    swiper: {
-      photos: PhotosResponse
-    }
-  },
-  content: {
-    postsList: {
-      posts: PostsListResponse.content,
-      initialized: true,
-      loading: false,
-      meta: null
-    },
-    comments: {
-      comments: CommentsResponse
-    },
-    singlePost: {
-      post: SinglePostResponse
-    },
-    recentPosts: {
-      recentPosts: RecentPostsResponse
-    }
+  tweets: {
+    tweets: TweetsResponse,
+    loading: false
   }
 };

@@ -1,11 +1,10 @@
 import { Injectable } from "@angular/core";
 import { Observable } from 'rxjs';
-import { map } from 'rxjs/operators';
 
-import { PostContentDTO, PostsDTO, SwiperDTO, TabDTO, CommentDTO } from './backend.model';
 import { Client } from '../client';
 import { BackendService } from './backend.service';
 import { TransferHttpService } from '../../services/transferHttp.service';
+import { Tweet } from './models/tweet.model';
 
 @Injectable()
 export class BackendClient {
@@ -20,6 +19,18 @@ export class BackendClient {
       this.backendService,
       this.transferHttpService
     );
+  }
+
+  getTweetsByHashtag(hashtag: string): Observable<Tweet[]> {
+    return this.client.sendGetRequest({
+      uri: this.client.routes.getTweetsByHashtag(hashtag)
+    });
+  }
+
+  getTweetsByUser(user: string): Observable<Tweet[]> {
+    return this.client.sendGetRequest({
+      uri: this.client.routes.getTweetsByUser(user)
+    });
   }
 
 }
