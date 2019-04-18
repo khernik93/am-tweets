@@ -1,0 +1,11 @@
+@import "../../../../variables";
+
+.search {
+  padding-top: 30px;
+  & .search--label {
+    color: $grey;
+  }
+  & .search--input input {
+    padding: 10px;
+  }
+}

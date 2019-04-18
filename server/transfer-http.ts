@@ -1,10 +1,14 @@
 import axios from 'axios';
-import { from, Observable } from 'rxjs';
+import { Observable } from 'rxjs';
+import { map } from 'rxjs/operators';
 
 export default class TransferHttp {
 
   get(baseUrl, uri = '/'): Observable<any> {
-    return from(axios.get(baseUrl + uri));
+    return Observable.from(axios.get(baseUrl + uri))
+      .pipe(
+        map((results: any) => results.data)
+      );
   }
 
 }

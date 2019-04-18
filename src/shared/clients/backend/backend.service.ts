@@ -2,8 +2,11 @@ import { Injectable } from "@angular/core";
 import { ClientServiceI } from '../interfaces/clientService.interface';
 
 let ROUTES: any = {
-  posts: '/post/tab'
+  hashtags: '/hashtags',
+  users: '/users'
 };
+ROUTES.getTweetsByHashtag = (hashtag) => ROUTES.hashtags + `/${hashtag}`;
+ROUTES.getTweetsByUser = (user) => ROUTES.users + `/${user}`;
 
 @Injectable()
 export class BackendService implements ClientServiceI {
