@@ -1,50 +1,20 @@
-import { of } from 'rxjs';
-import { Router } from '@angular/router';
+import { Observable } from 'rxjs';
 
 import { MockStore } from '../mocks/mockStore';
-import { PhotosResponse } from '../responses/photos.response';
-import { TabsResponse } from '../responses/tabs.response';
-import { SinglePostResponse } from '../responses/singlePost.response';
-import { PostsListResponse } from '../responses/postsList.response';
-import { RecentPostsResponse } from '../responses/recentPosts.response';
 import { BackendClient } from '../../../src/shared/clients/backend/backend.client';
-import { CommentsResponse } from '../responses/comments.response';
-import { ContentClient } from '../../../src/shared/clients/content/content.client';
+import { TweetsResponse } from '../responses/tweets.response';
 
 export class SharedStubs {
 
-  static router(): jasmine.SpyObj<Router> {
-    return jasmine.createSpyObj('Router', ['navigateByUrl']);
-  }
-
   static getBackendClientStub(): jasmine.SpyObj<BackendClient> {
     return jasmine.createSpyObj('BackendClient', {
-      'getRecentPosts': of(RecentPostsResponse),
-      'getPosts': of(PostsListResponse),
-      'getPost': of(SinglePostResponse),
-      'getTabs': of(TabsResponse),
-      'getPhotos': of(PhotosResponse),
-      'getComments': of(CommentsResponse),
-      'addNewPost': of(''),
-      'updatePost': of(''),
-      'deletePost': of(''),
-      'addComment': of(''),
-      'signIn': of('')
-    });
-  }
-
-  static getContentClientStub(): jasmine.SpyObj<ContentClient> {
-    return jasmine.createSpyObj('ContentClient', {
-      'uploadPhoto': of('')
+      'getTweetsByHashtag': Observable.of(TweetsResponse),
+      'getTweetsByUser': Observable.of(TweetsResponse)
     });
   }
 
   static getMockStoreStub<T>(): MockStore<T> {
     return new MockStore<T>();
-  }
-
-  static getPreviousRouteServiceStub() {
-    return jasmine.createSpyObj('PreviousRouteService', ['goBack']);
   }
 
 }

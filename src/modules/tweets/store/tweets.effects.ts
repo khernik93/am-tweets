@@ -17,7 +17,6 @@ export class TweetsEffects {
       exhaustMap((action: any) => (
         this.apiClient.getTweetsByHashtag(action.hashtag)
           .pipe(
-            tap(tweets => console.log(tweets)),
             map((tweets: Tweet[]) => (
               new GetTweetsSuccess(tweets)
             )),

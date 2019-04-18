@@ -31,11 +31,11 @@ export class SearchContainer implements OnInit, OnDestroy {
     this.sendSearchResetEventOnInputReset();
   }
 
-  private sendSearchResetEventOnInputReset() {
+  sendSearchResetEventOnInputReset() {
     this.input$
       .pipe(
         takeUntil(this.destroy$),
-        filter((input: string) => input === initialState.input)
+        filter((input: string) => !input)
       )
       .subscribe(() => {
         this.searchReset$.emit();

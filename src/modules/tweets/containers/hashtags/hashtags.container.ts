@@ -29,12 +29,12 @@ export class HashtagsContainer implements OnInit, OnDestroy {
     this.listenToSearchStringChanges();
   }
 
-  private setSearchType() {
+  setSearchType() {
     const searchType = SearchService.searchTypes.hashtags;
     this.store.dispatch(new SetSearchType(searchType));
   }
 
-  private listenToSearchStringChanges() {
+  listenToSearchStringChanges() {
     this.searchInput$
       .pipe(
         takeUntil(this.destroy$),

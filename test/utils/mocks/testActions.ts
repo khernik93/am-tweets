@@ -1,4 +1,4 @@
-import { empty, Observable } from 'rxjs';
+import { Observable } from 'rxjs';
 import { Actions } from '@ngrx/effects';
 import { Injectable } from '@angular/core';
 
@@ -6,7 +6,7 @@ import { Injectable } from '@angular/core';
 export class TestActions extends Actions {
   
   constructor() {
-    super(empty());
+    super(Observable.empty());
   }
 
   set stream(source: Observable<any>) {

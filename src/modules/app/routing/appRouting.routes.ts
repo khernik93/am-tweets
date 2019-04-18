@@ -4,7 +4,7 @@ import { NotFoundComponent } from '../components/notFound/notFound.component';
 export const appRoutesTree: Routes = [
   { 
     path: '', 
-    redirectTo: '/tweets',
+    redirectTo: '/tweets/hashtags',
     pathMatch: 'full'
   },
   { 

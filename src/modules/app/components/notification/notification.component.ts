@@ -30,7 +30,7 @@ export class NotificationComponent implements OnInit, OnDestroy {
       .subscribe(() => this.restartAnimation());
   }
 
-  private restartAnimation() {
+  restartAnimation() {
     this.el.nativeElement.style.animation = 'none';
     this.el.nativeElement.offsetHeight;
     this.el.nativeElement.style.animation = null;

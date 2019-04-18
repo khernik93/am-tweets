@@ -23,13 +23,13 @@ export class SearchComponent implements OnInit, OnDestroy {
     this.watchForSearchReset();
   }
 
-  private buildSearchForm() {
+  buildSearchForm() {
     this.searchForm = new FormGroup({
       input: new FormControl('', Validators.required)
     });
   }
 
-  private watchForSearchReset() {
+  watchForSearchReset() {
     this.searchReset$
       .pipe(
         takeUntil(this.destroy$)
