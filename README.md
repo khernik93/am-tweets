@@ -54,3 +54,6 @@ $ npm run lint
 ```
 $ docker-compose up -d --build
 ```
+
+* this will deploy the application under port 80 on the host machine (3000 in the docker network)
+* production mode will be used
