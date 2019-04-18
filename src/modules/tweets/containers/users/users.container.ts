@@ -29,12 +29,12 @@ export class UsersContainer implements OnInit, OnDestroy {
     this.listenToSearchStringChanges();
   }
 
-  private setSearchType() {
+  setSearchType() {
     const searchType = SearchService.searchTypes.users;
     this.store.dispatch(new SetSearchType(searchType));
   }
 
-  private listenToSearchStringChanges() {
+  listenToSearchStringChanges() {
     this.searchInput$
       .pipe(
         takeUntil(this.destroy$),

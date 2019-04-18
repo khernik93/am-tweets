@@ -11,7 +11,7 @@
     "build": "npm run clean:dist && npm run sass",
     "build:prod": "npm run clean:dist && npm run sass && webpack --prod --config config/webpack.config.ts",
     "start": "npm run build && npm run server",
-    "start:prod": "npm run build:prod && node server/index.ts",
+    "start:prod": "npm run build:prod && npm run bff:server",
     "webdev": "webpack-dev-server --config config/webpack.config.ts",
     "webdev:hmr": "npm run webdev --hotOnly --hot --inline",
     "server": "npm-run-all -p -r webdev:hmr sass:watch",
@@ -20,7 +20,7 @@
     "clean:dist": "rimraf -- dist",
     "test": "karma start config/karma.conf.js",
     "lint": "tslint -p tslint.json src/**/*.ts test/**/*.ts",
-    "dev:server": "tsc --project tsconfig.server.json && node ./server_compiled/index.js"
+    "bff:server": "tsc --project tsconfig.server.json && node ./server_compiled/index.js"
   },
   "dependencies": {
     "@angular/cdk": "^5.2.0",
@@ -78,7 +78,7 @@
     "istanbul-instrumenter-loader": "^3.0.1",
     "jasmine": "^3.3.1",
     "jasmine-core": "^3.3.0",
-    "jasmine-marbles": "^0.4.1",
+    "jasmine-marbles": "^0.2.0",
     "karma": "^4.0.1",
     "karma-chrome-launcher": "^2.2.0",
     "karma-coverage": "^1.1.2",

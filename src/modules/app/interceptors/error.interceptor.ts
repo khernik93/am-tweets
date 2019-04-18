@@ -26,7 +26,7 @@ export class ErrorInterceptor implements HttpInterceptor {
       .pipe(
         catchError((error: any) => {
           this.dispatchSpecificActions(error.status);
-          throw error;
+          return Observable.throw(error);
         })
       );
   }

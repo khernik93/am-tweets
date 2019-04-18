@@ -18,7 +18,7 @@ export class DataTableComponent {
 
   fetchDayFromDate(date: string) {
     const parts = date.split('-');
-    return parts[1] || '';
+    return (parts[1] || '').trim();
   }
 
 }

@@ -7,13 +7,11 @@ export enum NotificationActionTypes {
 
 export class SetError implements Action {
   readonly type = NotificationActionTypes.SetError;
-
   constructor(public message: string) { }
 }
 
 export class SetSuccess implements Action {
   readonly type = NotificationActionTypes.SetSuccess;
-
   constructor(public message: string) { }
 }
 

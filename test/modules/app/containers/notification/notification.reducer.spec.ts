@@ -1,6 +1,6 @@
 import { notificationReducer, initialState } from '../../../../../src/modules/app/containers/notification/store/notification.reducer';
 import * as notificationActions from '../../../../../src/modules/app/containers/notification/store/notification.actions';
-import { Notification, NotificationType } from '../../../../../src/modules/app/containers/notification/notification.model';
+import { Notification, NotificationType } from '../../../../../src/modules/app/containers/notification/model/notification.model';
 
 describe('NotificationReducer', () => {
 
@@ -24,6 +24,14 @@ describe('NotificationReducer', () => {
       type: NotificationType.success, 
       message: 'sample-message'
     });
+  });
+
+  it(`
+    WHEN different action is dispatched with notification
+    THEN the state is passed on
+  `, () => {
+    const action = {};
+    Helper.assertNotification(action, initialState.notification);
   });
 
   class Helper {
